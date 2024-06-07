@@ -19,7 +19,8 @@ Usage
 
 You can use `pyvariot` as a python script::
 
-	$ variot -h
+    $ variot -h
+
     usage: pyvariot [-h] [--url URL] [--apikey APIKEY]
                 (--vulnerability_id VULNERABILITY_ID | --exploit_id EXPLOIT_ID)
 
