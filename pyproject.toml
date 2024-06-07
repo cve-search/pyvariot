@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "pyvariot"
-version = "0.0.1"
+version = "0.1.1"
 description = "Python CLI and module to query the VARIoT IoT vulnerabilities and exploits databases"
 authors = ["Raphaël Vinot <raphael.vinot@circl.lu>"]
 license = "BSD-3-Clause"
+repository = "https://github.com/cve-search/pyvariot"
+documentation = "https://pyvariot.readthedocs.io/en/latest/"
 
 readme = "README.md"
 
