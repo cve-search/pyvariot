@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "pyproject"
+name = "pyvariot"
 version = "0.0.1"
-description = "Python CLI and module for project"
+description = "Python CLI and module to query the VARIoT IoT vulnerabilities and exploits databases"
 authors = ["Raphaël Vinot <raphael.vinot@circl.lu>"]
 license = "BSD-3-Clause"
 
@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 [tool.poetry.scripts]
-client = 'pyproject:main'
+pyvariot = 'pyvariot:main'
 
 [tool.poetry.dependencies]
 python = "^3.10"

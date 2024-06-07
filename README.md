@@ -1,18 +1,18 @@
-# Python client and module for Project Template
+# Python client and module to query the VARIoT IoT vulnerabilities and exploits databases
 
-This is a simple template used in all the web based APIs in this repository, and a few others.
+This is a Python client and module to query the [VARIoT IoT vulnerabilities and exploits databases](https://www.variotdbs.pl/api/).
 
 ## Installation
 
 ```bash
-pip install pyproject
+pip install pyvariot
 ```
 
 ## Usage
 
 ### Command line
 
-You can use the `client` command to do a thing:
+You can use the `variot` command to query the database:
 
 ```bash
 ```

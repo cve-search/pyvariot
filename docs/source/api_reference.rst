@@ -4,11 +4,11 @@ API reference
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: pyproject
+.. automodule:: pyvariot
    :members:
 
 PyProject
 ---------
 
-.. autoclass:: PyProject
+.. autoclass:: PyVARIoT
    :members:

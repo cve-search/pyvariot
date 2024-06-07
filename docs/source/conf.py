@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'PyProject'
-copyright = '2021, Lookyloo team'
-author = 'Lookyloo team'
+project = 'PyVARIoT'
+copyright = '2021, CVE Search'
+author = 'CVE Search team'
 
 # The full version, including alpha/beta/rc tags
 release = 'v0.0.1'
