@@ -17,9 +17,9 @@ class PyVARIoT():
                  *, proxies: dict[str, str] | None=None):
         '''Query a specific instance.
 
-        :param root_url: URL of the instance to query.
-        :param useragent: The User Agent used by requests to run the HTTP requests against the instance.
-        :param proxies: The proxies to use to connect to theinstance - More details: https://requests.readthedocs.io/en/latest/user/advanced/#proxies
+        :params root_url: URL of the instance to query.
+        :params useragent: The User Agent used by requests to run the HTTP requests against the instance.
+        :params proxies: The proxies to use to connect to theinstance - More details: https://requests.readthedocs.io/en/latest/user/advanced/#proxies
         '''
         self.root_url = root_url
 
@@ -41,6 +41,7 @@ class PyVARIoT():
     @apikey.setter
     def apikey(self, apikey: str) -> None:
         '''Set the API key to use for the requests.
+
         :params apikey: The API key to use for the requests.
         '''
         self._apikey = apikey
@@ -57,6 +58,7 @@ class PyVARIoT():
 
     def get_vulnerability(self, vulnerability_id: str, /, *, jsonld: bool=False) -> dict[str, Any]:
         '''Get a vulnerability by its ID.
+
         :param vulnerability_id: The ID of the vulnerability to get.
         :param jsonld: Whether to return the JSON-LD representation of the vulnerability.
         '''
@@ -66,6 +68,7 @@ class PyVARIoT():
 
     def get_exploit(self, exploit_id: str, /, *, jsonld: bool=False) -> dict[str, Any]:
         '''Get an exploit by its ID.
+
         :param exploit_id: The ID of the exploit to get.
         :param jsonld: Whether to return the JSON-LD representation of the exploit.
         '''
@@ -91,6 +94,7 @@ class PyVARIoT():
                             since: datetime | None=None, before: datetime | None,
                             limit: int | None=None, offset: int | None=None) -> dict[str, Any]:
         '''Get vulnerabilities on an interval.
+
         :param jsonld: Whether to return the JSON-LD representation of the vulnerabilities.
         :param since: The date from which to get the vulnerabilities.
         :param before: The date until which to get the vulnerabilities.
@@ -106,6 +110,7 @@ class PyVARIoT():
                                  since: datetime | None=None, before: datetime | None,
                                  limit: int | None=None, offset: int | None=None) -> Generator[dict[str, Any], None, None]:
         '''Get vulnerabilities on an interval, automatically iterates over all the matching vulerabilities.
+
         :param jsonld: Whether to return the JSON-LD representation of the vulnerabilities.
         :param since: The date from which to get the vulnerabilities.
         :param before: The date until which to get the vulnerabilities.
@@ -131,6 +136,7 @@ class PyVARIoT():
                      since: datetime | None=None, before: datetime | None,
                      limit: int | None=None, offset: int | None=None) -> dict[str, Any]:
         '''Get exploits on an interval.
+
         :param jsonld: Whether to return the JSON-LD representation of the exploits.
         :param since: The date from which to get the exploits.
         :param before: The date until which to get the exploits.
@@ -146,6 +152,7 @@ class PyVARIoT():
                           since: datetime | None=None, before: datetime | None,
                           limit: int | None=None, offset: int | None=None) -> Generator[dict[str, Any], None, None]:
         '''Get exploits on an interval, automatically iterates over all the matching exploits.
+
         :param jsonld: Whether to return the JSON-LD representation of the exploits.
         :param since: The date from which to get the exploits.
         :param before: The date until which to get the exploits.
