@@ -17,9 +17,22 @@ The package is available on PyPi, so you can install it with::
 Usage
 -----
 
-You can use `variot` as a python script::
+You can use `pyvariot` as a python script::
 
 	$ variot -h
+    usage: pyvariot [-h] [--url URL] [--apikey APIKEY]
+                (--vulnerability_id VULNERABILITY_ID | --exploit_id EXPLOIT_ID)
+
+    Get a vulnerability or an exploit by ID.
+
+    options:
+      -h, --help            show this help message and exit
+      --url URL             URL of the instance.
+      --apikey APIKEY       Your personal API key.
+      --vulnerability_id VULNERABILITY_ID
+                            ID of the vulnerability.
+      --exploit_id EXPLOIT_ID
+                            ID of the exploit.
 
 Or as a library:
 
