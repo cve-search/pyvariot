@@ -76,7 +76,8 @@ class PyVARIoT():
                              params={'jsonld': jsonld})
         return r.json()
 
-    def __prepare_params(self, jsonld: bool=False, since: datetime | None=None, before: datetime | None=None,
+    def __prepare_params(self, jsonld: bool=False,
+                         since: datetime | None=None, before: datetime | None=None,
                          limit: int | None=None, offset: int | None=None) -> dict[str, bool | str | int]:
         '''Prepare the parameters for the requests.'''
         params: dict[str, bool | str | int] = {'jsonld': jsonld}
@@ -91,7 +92,7 @@ class PyVARIoT():
         return params
 
     def get_vulnerabilities(self, /, *, jsonld: bool=False,
-                            since: datetime | None=None, before: datetime | None,
+                            since: datetime | None=None, before: datetime | None=None,
                             limit: int | None=None, offset: int | None=None) -> dict[str, Any]:
         '''Get vulnerabilities on an interval.
 
@@ -107,7 +108,7 @@ class PyVARIoT():
         return r.json()
 
     def get_vulnerabilities_iter(self, /, *, jsonld: bool=False,
-                                 since: datetime | None=None, before: datetime | None,
+                                 since: datetime | None=None, before: datetime | None=None,
                                  limit: int | None=None, offset: int | None=None) -> Generator[dict[str, Any], None, None]:
         '''Get vulnerabilities on an interval, automatically iterates over all the matching vulerabilities.
 
@@ -126,14 +127,14 @@ class PyVARIoT():
             if not r['next']:
                 break
             next_params = dict(parse_qsl(urlparse(r['next']).query))
-            since = datetime.fromisoformat(next_params['since'])
-            before = datetime.fromisoformat(next_params['before'])
+            since = datetime.fromisoformat(next_params['since']) if next_params.get('since') else None
+            before = datetime.fromisoformat(next_params['before']) if next_params.get('before') else None
             limit = int(next_params['limit'])
             offset = int(next_params['offset'])
             jsonld = False if next_params['offset'] == 'False' else True
 
     def get_exploits(self, /, *, jsonld: bool=False,
-                     since: datetime | None=None, before: datetime | None,
+                     since: datetime | None=None, before: datetime | None=None,
                      limit: int | None=None, offset: int | None=None) -> dict[str, Any]:
         '''Get exploits on an interval.
 
@@ -149,7 +150,7 @@ class PyVARIoT():
         return r.json()
 
     def get_exploits_iter(self, /, *, jsonld: bool=False,
-                          since: datetime | None=None, before: datetime | None,
+                          since: datetime | None=None, before: datetime | None=None,
                           limit: int | None=None, offset: int | None=None) -> Generator[dict[str, Any], None, None]:
         '''Get exploits on an interval, automatically iterates over all the matching exploits.
 
