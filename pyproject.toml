@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyvariot"
-version = "0.1.1"
+version = "0.2.0"
 description = "Python CLI and module to query the VARIoT IoT vulnerabilities and exploits databases"
 authors = ["Raphaël Vinot <raphael.vinot@circl.lu>"]
 license = "BSD-3-Clause"
