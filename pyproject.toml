@@ -37,11 +37,11 @@ Sphinx = { version = "^8.0.2", optional = true }
 docs = ["Sphinx"]
 
 [tool.poetry.group.dev.dependencies]
-pylint = "^3.2.6"
-mypy = "^1.11.1"
-types-requests = "^2.32.0.20240712"
-ipython = "^8.26.0"
-pytest = "^8.3.2"
+pylint = "^3.3.0"
+mypy = "^1.11.2"
+types-requests = "^2.32.0.20240914"
+ipython = "^8.27.0"
+pytest = "^8.3.3"
 
 [build-system]
 requires = ["poetry_core"]
