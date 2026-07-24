@@ -64,6 +64,7 @@ class PyVARIoT():
         '''
         r = self.session.get(urljoin(self.root_url, str(PurePosixPath('api', 'vuln', vulnerability_id))),
                              params={'jsonld': jsonld})
+        r.raise_for_status()
         return r.json()
 
     def get_exploit(self, exploit_id: str, /, *, jsonld: bool=False) -> dict[str, Any]:
@@ -74,6 +75,7 @@ class PyVARIoT():
         '''
         r = self.session.get(urljoin(self.root_url, str(PurePosixPath('api', 'exploit', exploit_id))),
                              params={'jsonld': jsonld})
+        r.raise_for_status()
         return r.json()
 
     def __prepare_params(self, jsonld: bool=False,
@@ -105,6 +107,7 @@ class PyVARIoT():
         params = self.__prepare_params(jsonld, since, before, limit, offset)
         r = self.session.get(urljoin(self.root_url, str(PurePosixPath('api', 'vulns'))),
                              params=params)
+        r.raise_for_status()
         return r.json()
 
     def get_vulnerabilities_iter(self, /, *, jsonld: bool=False,
@@ -127,11 +130,14 @@ class PyVARIoT():
             if not r['next']:
                 break
             next_params = dict(parse_qsl(urlparse(r['next']).query))
-            since = datetime.fromisoformat(next_params['since']) if next_params.get('since') else None
-            before = datetime.fromisoformat(next_params['before']) if next_params.get('before') else None
+            # Only override the filters echoed in the next URL; keep the
+            # caller's values (jsonld included) for the other parameters.
+            if next_params.get('since'):
+                since = datetime.fromisoformat(next_params['since'])
+            if next_params.get('before'):
+                before = datetime.fromisoformat(next_params['before'])
             limit = int(next_params['limit'])
             offset = int(next_params['offset'])
-            jsonld = False if next_params['offset'] == 'False' else True
 
     def get_exploits(self, /, *, jsonld: bool=False,
                      since: datetime | None=None, before: datetime | None=None,
@@ -147,6 +153,7 @@ class PyVARIoT():
         params = self.__prepare_params(jsonld, since, before, limit, offset)
         r = self.session.get(urljoin(self.root_url, str(PurePosixPath('api', 'exploits'))),
                              params=params)
+        r.raise_for_status()
         return r.json()
 
     def get_exploits_iter(self, /, *, jsonld: bool=False,
@@ -169,8 +176,11 @@ class PyVARIoT():
             if not r['next']:
                 break
             next_params = dict(parse_qsl(urlparse(r['next']).query))
-            since = datetime.fromisoformat(next_params['since'])
-            before = datetime.fromisoformat(next_params['before'])
+            # Only override the filters echoed in the next URL; keep the
+            # caller's values (jsonld included) for the other parameters.
+            if next_params.get('since'):
+                since = datetime.fromisoformat(next_params['since'])
+            if next_params.get('before'):
+                before = datetime.fromisoformat(next_params['before'])
             limit = int(next_params['limit'])
             offset = int(next_params['offset'])
-            jsonld = False if next_params['offset'] == 'False' else True
