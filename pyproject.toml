@@ -1,6 +1,6 @@
 [project]
 name = "pyvariot"
-version = "0.2.2"
+version = "0.2.3"
 description = "Python CLI and module to query the VARIoT IoT vulnerabilities and exploits databases"
 authors = [{name="Raphaël Vinot", email="raphael.vinot@circl.lu"}]
 license = "BSD-3-Clause"
@@ -10,7 +10,7 @@ requires-python = ">=3.10"
 dynamic = [ "classifiers" ]
 
 dependencies = [
-    "requests (>=2.32.5)"
+    "requests (>=2.34.2)"
 ]
 
 [project.urls]
@@ -36,10 +36,10 @@ pyvariot = 'pyvariot:main'
 docs = ["Sphinx (>=9.1.0) ; python_version >= \"3.12\""]
 
 [tool.poetry.group.dev.dependencies]
-pylint = "^4.0.4"
-mypy = "^1.19.1"
-types-requests = "^2.32.4.20260107"
-pytest = "^9.0.2"
+pylint = "^4.0.6"
+mypy = "^2.3.0"
+types-requests = "^2.33.0.20260712"
+pytest = "^9.1.1"
 
 [build-system]
 requires = ["poetry-core>=2.0"]
